@@ -5,6 +5,12 @@ char choose = 0;
 bool pass = false;
 bool passFight = false;
 bool death;
+static void ClearScren()
+{
+	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+	std::cout << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl << std::endl;
+}
 class enemy
 {
 public:
@@ -12,38 +18,19 @@ public:
 	int HP;
 	int block;
 	int damage;
-	enemy()
-	{
-		turn = 0;
-		block = 5;
-		HP = 30;
-		damage = 4;
-	}
 };
 class BaseClass
 {
 public:
+	bool storyblock;
 	bool inBlock;
 	int BlockPower;
 	int level;
 	int HP;
 	int attackDamage;
 	int block;
-	BaseClass()
-	{
-		inBlock = false;
-		block = 0;
-		BlockPower = 5;
-		level = 0;
-		HP = 20;
-		attackDamage = 4;
-	}
 	virtual void LevelUp() = 0;
-	virtual void AttackEnemy(enemy& target)
-	{
-		if (attackDamage > block)
-			target.HP -= attackDamage - block;
-	}
+	virtual void AttackEnemy(enemy& target) = 0;
 	virtual void turnOfFight(enemy& target) = 0;
 	void EndOfBlock()
 	{
@@ -51,11 +38,12 @@ public:
 		{
 			block -= BlockPower;
 			inBlock = false;
+			storyblock = false;
 		}
 	}
-	void BlockEnemy()
+	void BlockEnemy(bool I = true)
 	{
-		system("CLS");
+		ClearScren();
 		block += BlockPower;
 		inBlock = true;
 		if (classChoose == 'm')
@@ -64,14 +52,16 @@ public:
 			std::cout << "You dash to side." << std::endl << std::endl;
 		else
 			std::cout << "You raise your shield." << std::endl << std::endl;
+		if (I == true)
+			storyblock = true;
 	}
 };
 //Adam's Edit
-void WrongLetter()
+static void WrongLetter()
 {
 	std::cout << "Wrong letter, try again." << std::endl;
 }
-void EnemyOffense(int enemyDamage, BaseClass& player)
+static void EnemyOffense(int enemyDamage, BaseClass& player)
 {
 	if (enemyDamage > player.block)
 	{
@@ -92,13 +82,17 @@ class You : public enemy
 public:
 	You()
 	{
+			turn = 0;
+			block = 5;
+			HP = 30;
+			damage = 4;
 		std::cout << "You go to the top of mountain...";
 		std::cin.get();
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "and you see a chalet. Someone is running in it.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		if (classChoose == 'a')
 		{
 			std::cout << "Some assassin opens the door and dashes towards you.";
@@ -114,38 +108,38 @@ public:
 			std::cout << "Some mage opens the door and starts casting a spell.";
 			std::cin.get();
 		}
-		system("CLS");
+		ClearScren();
 	}
 	void dead()
 	{
 		std::cout << "You kill him.";
 		std::cin.get();
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "Then you go rest and look down to the beautiful magic nature and the golem slowly gets back to his position.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "You see the forest...";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "and the golem slowly getting back to his position.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "You go to chalet and treat it like your own house.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "About two weeks later, some goblin steals the gilded armor.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "But you don't care, because you found your home.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "A few weeks later, you hear someone.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "You go towards your house, look through the window and you see...";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		if (classChoose == 'a')
 		{
 			std::cout << "an assassin covered in blood!";
@@ -161,34 +155,32 @@ public:
 			std::cout << "a very powerful mage!";
 			std::cin.get();
 		}
-		system("CLS");
+		ClearScren();
 		std::cout << "You are scared of losing your home...";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "so you run out of your house and...";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		if (classChoose == 'a')
 		{
 			std::cout << "dash towards him and slash him three times.";
 			std::cin.get();
-			system("CLS");
 		}
 		else if (classChoose == 'k')
 		{
 			std::cout << "run towards him and attack him three times.";
 			std::cin.get();
-			system("CLS");
 		}
 		else
 		{
 			std::cout << "start casting spell that you have learned. It's an explosive laser; you do it three times.";
 			std::cin.get();
-			system("CLS");
 		}
+		ClearScren();
 		std::cout << "Then you realize it, you so you drop your weapon...";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "and wait for death." << std::endl << std::endl << std::endl;
 	}
 	void SecretEnd()
@@ -196,22 +188,22 @@ public:
 		std::cout << "He asks why won't you kill him.";
 		std::cin.get();
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "\"You know that you are me.\"";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "\"You know that this is an endless loop.\"";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "\"Now we can break the loop and save more of us.\"";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "\"A goblin will be here in to weeks.\"";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "\"We will go with him and go back to where we came from...\"";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "\"and try stop this loop for ever.\"" << std::endl << std::endl << std::endl;
 	}
 	~You()
@@ -227,28 +219,27 @@ public:
 	golems()
 	{
 		turn = 0;
-		HP = 20;
+		HP = 22;
 		block = 5;
 		damage = 7;
 		std::cout << "You go past the forest and up to the mountains. The road is not too steep...";
 		std::cin.get();
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "and next to you there are strange shaped rocks";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "and suddenly they start moving. You know it's a golem.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "He is built out of those rocks, that's why you didn't see him earlier.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 	}
 	void dead()
 	{
 		std::cout << "You kill the golem, go further up and you see another one..." << std::endl;
 		std::cin.get();
-		system("CLS");
 	}
 };
 class elements : public enemy
@@ -257,19 +248,19 @@ public:
 	elements()
 	{
 		turn = 0;
-		HP = 20;
+		HP = 25;
 		block = 4;
 		damage = 9;
 		std::cout << "But this one is a lot slimmer than the previous one.";
 		std::cin.get();
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "He has gaps between the stones and you can see some magic flowing between those gaps.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "He is extremely fast.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 	}
 };
 class goblins : public enemy
@@ -278,44 +269,44 @@ public:
 	goblins()
 	{
 		turn = 0;
-		HP = 10;
+		HP = 13;
 		block = 3;
 		damage = 6;
 		std::cout << "You are in a forest and see strange trees. Each tree has runes carved into it and the leaves rise up into the clouds instead of falling down.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "You don't care, because you have been on the road for two weeks and you ran out of food a week ago. You feel tired.";
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		std::cout << "Suddenly, a goblin starts running at you out of nowhere. He has armour made of iron and the edges of the plates on his armour are gilded...";
 		std::cin.get();
-		system("CLS");
-		std::cout << "and...";
+		ClearScren();
+		std::cout << "and ";
 	}
 	void dead(BaseClass& player)
 	{
 		std::cout << "He died. You notice he had food on him, so you take his food and rest.";
 		std::cin.get();
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 		if (classChoose == 'k')
 		{
-			player.BlockPower += 1;
+			player.BlockPower++;
 			std::cout << "Then you take his armor, because it's better than yours." << std::endl;
 			std::cin.get();
-			system("CLS");
+			ClearScren();
 		}
 		else
 		{
 			if (classChoose == 'a')
-				player.BlockPower -= 1;
+				player.BlockPower--;
 			std::cout << "Then you take his armor, because you think it will be worth something." << std::endl;
 			std::cin.get();
-			system("CLS");
+			ClearScren();
 		}
 		std::cout << "And then you move on." << std::endl;
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 	}
 };
 class mage : public BaseClass
@@ -339,14 +330,15 @@ public:
 		std::cout << std::endl << std::endl;
 		std::cin.get();
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 	}
 	mage()
 	{
+		inBlock = false;
 		level = 1;
 		block = 1;
 		BlockPower = 4;
-		attackDamage = 4;
+		attackDamage = 6;
 		HP = 20;
 		Display();
 	}
@@ -362,12 +354,12 @@ public:
 				std::cout << std::endl;
 				if (choose == 'm')
 				{
-					attackDamage += 1;
+					attackDamage++;
 					pass = true;
 				}
 				else if (choose == 's')
 				{
-					BlockPower += 1;
+					BlockPower++;
 					pass = true;
 				}
 				else
@@ -382,11 +374,11 @@ public:
 	}
 	void AttackEnemy(enemy& target) override
 	{
-		system("CLS");
+		ClearScren();
 		if (level <= 1)
 		{
 			if (attackDamage > target.block)
-				target.HP -= attackDamage - target.block;
+				target.HP -= (attackDamage - target.block);
 			std::cout << "You cast Magic Missile." << std::endl;
 		}
 		else
@@ -406,7 +398,7 @@ public:
 				if (choose == 'm')
 				{
 					if (attackDamage > target.block)
-						target.HP -= attackDamage - target.block;
+						target.HP -= (attackDamage - target.block);
 					std::cout << "You cast Magic Missile." << std::endl;
 					pass = true;
 				}
@@ -473,10 +465,11 @@ public:
 		std::cout << "You are level " << level << std::endl << "You have " << HP << " HP" << std::endl << "Dash speed: " << BlockPower << std::endl << "Your damage: " << attackDamage << std::endl << std::endl;
 		std::cin.get();
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 	}
 	assassins()
 	{
+		inBlock = false;
 		level = 1;
 		block = 0;
 		BlockPower = 5;
@@ -493,15 +486,14 @@ public:
 			while (pass == false)
 			{
 				std::cin >> choose;
-				std::cout << std::endl;
 				if (choose == 'd')
 				{
-					attackDamage += 1;
+					attackDamage ++;
 					pass = true;
 				}
 				else if (choose == 's')
 				{
-					BlockPower += 1;
+					BlockPower ++;
 					pass = true;
 				}
 				else
@@ -515,11 +507,11 @@ public:
 	}
 	void AttackEnemy(enemy& target) override
 	{
-		system("CLS");
+		ClearScren();
 		if (level <= 1)
 		{
 			if (attackDamage > target.block)
-				target.HP -= attackDamage - target.block;
+				target.HP -= (attackDamage - target.block);
 			std::cout << "You have slashed the enemy." << std::endl << std::endl;
 		}
 		else if (level <= 2)
@@ -528,7 +520,7 @@ public:
 				target.HP -= round(1.2f * attackDamage - target.block);
 			std::cout << "You have slashed the enemy from one side and the other." << std::endl << std::endl;
 		}
-		else if (level <= 3)
+		else if (level >= 3)
 		{
 			if (round(1.5f * attackDamage) > target.block)
 				target.HP -= round(1.5 * attackDamage - target.block);
@@ -568,10 +560,11 @@ public:
 		std::cout << "You are level " << level << std::endl << "You have " << HP << " HP" << std::endl << "Shield grip: " << BlockPower << std::endl << "Your damage: " << attackDamage << std::endl << std::endl;
 		std::cin.get();
 		std::cin.get();
-		system("CLS");
+		ClearScren();
 	}
 	knights()
 	{
+		inBlock = false;
 		level = 1;
 		block = 3;
 		BlockPower = 2;
@@ -588,15 +581,14 @@ public:
 			while (pass == false)
 			{
 				std::cin >> choose;
-				std::cout << std::endl;
 				if (choose == 's')
 				{
-					attackDamage += 1;
+					attackDamage ++;
 					pass = true;
 				}
 				else if (choose == 'h')
 				{
-					BlockPower += 1;
+					BlockPower ++;
 					pass = true;
 				}
 				else
@@ -610,11 +602,11 @@ public:
 	}
 	void AttackEnemy(enemy& target) override
 	{
-		system("CLS");
+		ClearScren();
 		if (level <= 1)
 		{
 			if (attackDamage > target.block)
-				target.HP -= attackDamage - target.block;
+				target.HP -= (attackDamage - target.block);
 			std::cout << "You swing with your sword." << std::endl;
 		}
 		else
@@ -634,7 +626,7 @@ public:
 				if (choose == 's')
 				{
 					if (attackDamage > target.block)
-						target.HP -= attackDamage - target.block;
+						target.HP -=(attackDamage - target.block);
 					std::cout << "You swing with your sword." << std::endl;
 					pass = true;
 				}
@@ -650,9 +642,9 @@ public:
 					if (level >= 3)
 					{
 						if (attackDamage > target.block)
-							target.HP -= attackDamage - target.block;
+							target.HP -= (attackDamage - target.block);
 						std::cout << "You do an attack and block." << std::endl;
-						BlockEnemy();
+						BlockEnemy(false);
 						pass = true;
 					}
 					else
@@ -693,7 +685,7 @@ public:
 		pass = false;
 	}
 };
-bool CampaignGoblin(BaseClass& player)
+static bool CampaignGoblin(BaseClass& player)
 {
 	goblins goblin;
 	while (passFight == false)
@@ -721,7 +713,7 @@ bool CampaignGoblin(BaseClass& player)
 		player.turnOfFight(goblin);
 	}
 }
-bool CampaignGolem(BaseClass& player)
+static bool CampaignGolem(BaseClass& player)
 {
 	golems golem;
 	while (passFight == false)
@@ -749,6 +741,7 @@ bool CampaignGolem(BaseClass& player)
 		{
 			std::cout << "Out of nowhere, he struck you from the side with his other hand." << std::endl << std::endl;
 			EnemyOffense(golem.damage, player);
+			golem.turn = -1;
 		}
 		golem.turn++;
 		if (player.HP <= 0)
@@ -761,7 +754,7 @@ bool CampaignGolem(BaseClass& player)
 		player.turnOfFight(golem);
 	}
 }
-bool CampaignElemental(BaseClass& player)
+static bool CampaignElemental(BaseClass& player)
 {
 	elements element;
 	while (passFight == false)
@@ -802,7 +795,7 @@ bool CampaignElemental(BaseClass& player)
 		player.turnOfFight(element);
 	}
 }
-bool InTheEnd(BaseClass& player)
+static bool InTheEnd(BaseClass& player)
 {
 	int spare = 0;
 	You you;
@@ -823,21 +816,30 @@ bool InTheEnd(BaseClass& player)
 			if (you.damage > player.block)
 			{
 				player.HP -= (you.damage - player.block);
-				std::cout << "The spell hit you." << std::endl;
+				if (classChoose == 'm')
+					std::cout << "The spell hit you." << std::endl;
+				else
+					std::cout << "hit you." << std::endl;
 			}
 			else if (classChoose == 'a')
 				std::cout << "You dodged it." << std::endl;
 			else
 				std::cout << "You blocked it completely." << std::endl;
-			std::cout << "It's a strange spell, because you can't see anything and then an explosion happened." << std::endl;
-			std::cout << "He cast another one." << std::endl;
+			if (classChoose == 'm')
+			{
+				std::cout << "It's a strange spell, because you can't see anything and then an explosion happened." << std::endl;
+				std::cout << "He cast another one." << std::endl;
+			}
 		}
 		else if (you.turn <= 2)
 		{
 			if (you.damage > player.block)
 			{
 				player.HP -= (you.damage - player.block);
-				std::cout << "The spell hit you." << std::endl;
+				if (classChoose == 'm')
+					std::cout << "The spell hit you." << std::endl;
+				else
+					std::cout << "hit you." << std::endl;
 			}
 			else if (classChoose == 'a')
 				std::cout << "You dodged it." << std::endl;
@@ -851,7 +853,7 @@ bool InTheEnd(BaseClass& player)
 		else
 		{
 			std::cout << "He stared you down." << std::endl;
-			if (player.inBlock == true)
+			if (player.storyblock == true)
 				spare++;
 		}
 		you.turn++;
@@ -864,7 +866,6 @@ bool InTheEnd(BaseClass& player)
 		}
 		player.turnOfFight(you);
 	}
-	return true;
 }
 int main()
 {
