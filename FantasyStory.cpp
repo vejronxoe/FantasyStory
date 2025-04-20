@@ -137,7 +137,7 @@ public:
 		std::cout << "A few weeks later, you hear someone.";
 		std::cin.get();
 		ClearScren();
-		std::cout << "You go towards your house, look through the window and you see...";
+		std::cout << "he goes towards your house, look through the window and you see...";
 		std::cin.get();
 		ClearScren();
 		if (classChoose == 'a')
@@ -178,7 +178,7 @@ public:
 			std::cin.get();
 		}
 		ClearScren();
-		std::cout << "Then you realize it, you so you drop your weapon...";
+		std::cout << "Then you realize it you,so you drop your weapon...";
 		std::cin.get();
 		ClearScren();
 		std::cout << "and wait for death." << std::endl << std::endl << std::endl;
@@ -568,7 +568,7 @@ public:
 		level = 1;
 		block = 3;
 		BlockPower = 2;
-		attackDamage = 4;
+		attackDamage = 5;
 		HP = 20;
 		Display();
 	}
@@ -819,7 +819,7 @@ static bool InTheEnd(BaseClass& player)
 				if (classChoose == 'm')
 					std::cout << "The spell hit you." << std::endl;
 				else
-					std::cout << "hit you." << std::endl;
+					std::cout << "the slash hit you." << std::endl;
 			}
 			else if (classChoose == 'a')
 				std::cout << "You dodged it." << std::endl;
@@ -833,6 +833,10 @@ static bool InTheEnd(BaseClass& player)
 		}
 		else if (you.turn <= 2)
 		{
+			if (classChoose == 'm')
+				std::cout << "The cast spell." << std::endl;
+			else
+				std::cout << "he slash you." << std::endl;
 			if (you.damage > player.block)
 			{
 				player.HP -= (you.damage - player.block);
