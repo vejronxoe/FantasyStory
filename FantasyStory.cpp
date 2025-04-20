@@ -198,7 +198,7 @@ public:
 		std::cout << "\"Now we can break the loop and save more of us.\"";
 		std::cin.get();
 		ClearScren();
-		std::cout << "\"A goblin will be here in to weeks.\"";
+		std::cout << "\"A goblin will be here in two weeks.\"";
 		std::cin.get();
 		ClearScren();
 		std::cout << "\"We will go with him and go back to where we came from...\"";
@@ -208,7 +208,7 @@ public:
 	}
 	~You()
 	{
-		std::cout << "Thanks for playing the game." << std::endl << "I must thank to: " << std::endl << "playtester:                Jiri Nemec" << std::endl << "Quality controller:                    Adam Janulik" << std::endl;
+		std::cout << "Thanks for playing the game." << std::endl << "I must thank to: " << std::endl << "playtesters:                Jiri Nemec" << std::endl << "                            Tades Letocha" << std::endl << "Quality controller:                    Adam Janulik" << std::endl;
 		std::cin.get();
 		std::cin.get();
 	}
