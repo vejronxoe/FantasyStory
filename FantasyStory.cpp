@@ -71,7 +71,7 @@ static void EnemyOffense(int enemyDamage, BaseClass& player)
 		player.HP -= (enemyDamage - player.block);
 		if (player.inBlock == true)
 		{
-			std::cout << "the attack has been weaaken" << std::endl << std::endl;
+			std::cout << "The attack has been weakened." << std::endl << std::endl;
 		}
 		else
 			std::cout << "You got hit by it." << std::endl << std::endl;
@@ -95,7 +95,7 @@ public:
 			block = 5;
 			HP = 30;
 			damage = 4;
-		std::cout << "You go to the top of mountain...";
+		std::cout << "You go to the top of the mountain...";
 		std::cin.get();
 		std::cin.get();
 		ClearScren();
@@ -104,17 +104,17 @@ public:
 		ClearScren();
 		if (classChoose == 'a')
 		{
-			std::cout << "a assassin opens the door and dashes towards you.";
+			std::cout << "An assassin opens the door and dashes towards you.";
 			std::cin.get();
 		}
 		else if (classChoose == 'k')
 		{
-			std::cout << "a knight opens the door and runs towards you.";
+			std::cout << "A knight opens the door and runs towards you.";
 			std::cin.get();
 		}
 		else
 		{
-			std::cout << "a mage opens the door and starts casting a spell.";
+			std::cout << "A mage opens the door and starts casting a spell.";
 			std::cin.get();
 		}
 		ClearScren();
@@ -132,24 +132,24 @@ public:
 		std::cin.get();
 		ClearScren();
 		if (golemSpare)
-			std::cout << "and golem in his place";
+			std::cout << "and the golem in his place";
 		else
-			std::cout << "and the golem slowly getting back to his position.";
+			std::cout << "The golem is slowly getting back to his position.";
 		std::cin.get();
 		ClearScren();
-		std::cout << "You go to chalet and treat it like your own house.";
+		std::cout << "You go to the chalet and treat it like your own house.";
 		std::cin.get();
 		ClearScren();
 		if (goblinSpare)
 		{
-			std::cout << "About three weeks later,the goblin with gilded armor go to your chalet";
+			std::cout << "About 3 weeks later, the goblin with gilded armor comes to your chalet.";
 			std::cin.get();
 			ClearScren();
-			std::cout << "he give you purse full of gold coins he said because stole armor";
+			std::cout << "He give you a purse full of gold coins, because you didn't steal his armor back then.";
 		}
 		else
 		{
-			std::cout << "About two weeks later, some goblin steals the gilded armor.";
+			std::cout << "About two weeks later, a goblin steals the gilded armor.";
 			std::cin.get();
 			ClearScren();
 			std::cout << "But you don't care, because you found your home.";
@@ -159,7 +159,7 @@ public:
 		std::cout << "A few weeks later, you hear someone.";
 		std::cin.get();
 		ClearScren();
-		std::cout << "he goes towards your house, look through the window and you see...";
+		std::cout << "He goes towards your house, look through the window and you see...";
 		std::cin.get();
 		ClearScren();
 		if (classChoose == 'a')
@@ -191,16 +191,16 @@ public:
 		}
 		else if (classChoose == 'k')
 		{
-			std::cout << "run towards him and attack him three times.";
+			std::cout << "run towards him and strike him three times.";
 			std::cin.get();
 		}
 		else
 		{
-			std::cout << "start casting spell that you have learned. It's an explosive laser; you do it three times.";
+			std::cout << "start casting a spell that you have learned. It's an explosive laser; you do it three times.";
 			std::cin.get();
 		}
 		ClearScren();
-		std::cout << "Then you realize it you,so you drop your weapon...";
+		std::cout << "Then you realize it you, so you drop your weapon...";
 		std::cin.get();
 		ClearScren();
 		std::cout << "and wait for death." << std::endl << std::endl << std::endl;
@@ -221,26 +221,26 @@ public:
 		std::cin.get();
 		ClearScren();
 		if (goblinSpare)
-			std::cout << "\"you haave already save goblin\"";
+			std::cout << "\"You have already saved the goblin.\"";
 		else
 			std::cout << "\"A goblin will be here in two weeks.\"";
 		std::cin.get();
 		if (golemSpare)
 		{
 			ClearScren();
-			std::cout << "\"I see you helped the golem\"";
+			std::cout << "\"I see you helped the golem.\"";
 			std::cin.get();
 		}
 		if (elementalSpare)
 		{
 			ClearScren();
-			std::cout << "\"I dont see the Elementals stones, so you dont kill him?\"";
+			std::cout << "\"I don't see the Elemental's stones. You didn't kill him?\"";
 			std::cin.get();
 		}
 		ClearScren();
 		if (goblinSpare)
 		{
-			std::cout << "\"Tomorrow We will go back to where we came from...\"";
+			std::cout << "\"Tomorrow, we will go back to where we came from...\"";
 			std::cin.get();
 			ClearScren();
 		}
@@ -250,12 +250,12 @@ public:
 			std::cin.get();
 			ClearScren();
 		}
-		std::cout << "\"and try stop this loop for ever.\"" << std::endl << std::endl << std::endl;
+		std::cout << "\"and try stop this loop forever.\"" << std::endl << std::endl << std::endl;
 	}
 	~You()
 	{
 		if (goblinSpare && golemSpare && elementalSpare && YouSpare)
-			std::cout << "arent you a pacifist?" << std::endl;
+			std::cout << "Aren't you a pacifist?" << std::endl;
 		std::cout << "Thanks for playing the game." << std::endl << "I must thank to: " << std::endl << "playtesters:                Jiri Nemec" << std::endl << "                            Tades Letocha" << std::endl << "Quality controller:                    Adam Janulik" << std::endl;
 		std::cin.get();
 		std::cin.get();
@@ -274,13 +274,13 @@ public:
 		std::cin.get();
 		std::cin.get();
 		ClearScren();
-		std::cout << "and next to you there are strange shaped rocks";
+		std::cout << "and next to you there are strange shaped rocks...";
 		std::cin.get();
 		ClearScren();
 		std::cout << "and suddenly they start moving. You know it's a golem.";
 		std::cin.get();
 		ClearScren();
-		std::cout << "the golem is bandaged with some kind of root";
+		std::cout << "The golem is bandaged with some kind of roots.";
 		std::cin.get();
 		ClearScren();
 		std::cout << "He is built out of those rocks, that's why you didn't see him earlier.";
@@ -289,7 +289,7 @@ public:
 	}
 	void dead()
 	{
-		std::cout << "You stunned the golem, go further up and you see some stone start fly up and form another one..." << std::endl;
+		std::cout << "You stun the golem, go further up and you see some stones start to fly up, forming another one..." << std::endl;
 		std::cin.get();
 		std::cin.get();
 	}
@@ -297,11 +297,11 @@ public:
 	{
 		ClearScren();
 		golemSpare = true;
-		std::cout << "the golem goes happy back to his position were he will wait" << std::endl;
+		std::cout << "The golem goes happily back to his position were he starts waiting again." << std::endl;
 		std::cin.get();
 		std::cin.get();
 		ClearScren();
-		std::cout << "go further up and you see some stone start fly up and form another Golem..." << std::endl;
+		std::cout << "You go further up and see some stones start fly up, forming another Golem..." << std::endl;
 		std::cin.get();
 	}
 };
@@ -329,18 +329,18 @@ public:
 	void dead()
 	{
 		ClearScren();
-		std::cout << "he stoped";
+		std::cout << "He stopped.";
 		std::cin.get();
 		std::cin.get();
 		ClearScren();
-		std::cout << "the magic stop flowing betwen the rocks and goes up to the air and the rocks drop on the ground ";
+		std::cout << "The magic stops flowing between the rocks and evaporates up into the air, with the rocks falling on the ground.";
 		std::cin.get();
 	}
 	void spare()
 	{
 		elementalSpare = true;
 		ClearScren();
-		std::cout << "he run away";
+		std::cout << "He runs away.";
 		std::cin.get();
 		std::cin.get();
 	}
@@ -363,7 +363,6 @@ public:
 		std::cout << "Suddenly, a goblin starts running at you out of nowhere. He has armour made of iron and the edges of the plates on his armour are gilded...";
 		std::cin.get();
 		ClearScren();
-		std::cout << "and ";
 	}
 	void dead(BaseClass& player)
 	{
@@ -394,14 +393,14 @@ public:
 	{
 		ClearScren();
 		goblinSpare = true;
-		std::cout << "the goblin say \"you dont want back my armor ?\"";
+		std::cout << "The goblin says: \"you dont want back my armor?\"";
 		std::cin.get();
 		std::cin.get();
 		ClearScren();
-		std::cout << "\"so GoodBye\"";
+		std::cout << "\"Very well, goodbye...\"";
 		std::cin.get();
 		ClearScren();
-		std::cout << "and he goes the way you came from";
+		std::cout << "and he goes the way you came from.";
 		std::cin.get();
 	}
 };
@@ -824,7 +823,7 @@ static bool CampaignGoblin(BaseClass& player)
 		}
 		if ((goblin.turn % 2) == 1)
 		{
-			std::cout << "goblin swings swort" << std::endl << std::endl;
+			std::cout << "The goblin swings his sword." << std::endl << std::endl;
 			EnemyOffense(goblin.damage, player);
 		}
 		else
@@ -861,7 +860,7 @@ static bool CampaignGolem(BaseClass& player)
 		{
 			if (roots)
 			{
-				std::cout << "you cut the roots and the golem seems happy" << std::endl << std::endl;
+				std::cout << "You cut the roots and the golem seems happy." << std::endl << std::endl;
 				roots = false;
 			}
 			golem.turn = 0;
@@ -927,7 +926,7 @@ static bool CampaignElemental(BaseClass& player)
 				player.LevelUp();
 				return true;
 			}
-			std::cout << "he dash away" << std::endl << std::endl;
+			std::cout << "He dashes away." << std::endl << std::endl;
 			element.turn = -1;
 			Escape = true;
 		}
@@ -991,7 +990,7 @@ static bool InTheEnd(BaseClass& player)
 				if (classChoose == 'm')
 					std::cout << "The spell hit you." << std::endl;
 				else
-					std::cout << "the slash hit you." << std::endl;
+					std::cout << "The slash hit you." << std::endl;
 			}
 			else if (classChoose == 'a')
 				std::cout << "You dodged it." << std::endl;
@@ -1006,16 +1005,16 @@ static bool InTheEnd(BaseClass& player)
 		else if (you.turn <= 2)
 		{
 			if (classChoose == 'm')
-				std::cout << "The cast spell." << std::endl;
+				std::cout << "He cast a spell." << std::endl;
 			else
-				std::cout << "he slash you." << std::endl;
+				std::cout << "He swinged at you." << std::endl;
 			if (you.damage > player.block)
 			{
 				player.HP -= (you.damage - player.block);
 				if (classChoose == 'm')
 					std::cout << "The spell hit you." << std::endl;
 				else
-					std::cout << "hit you." << std::endl;
+					std::cout << "He hit you." << std::endl;
 			}
 			else if (classChoose == 'a')
 				std::cout << "You dodged it." << std::endl;
